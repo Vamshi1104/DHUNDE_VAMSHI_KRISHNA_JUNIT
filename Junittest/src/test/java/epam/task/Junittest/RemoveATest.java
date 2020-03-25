@@ -2,6 +2,7 @@ package epam.task.Junittest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class RemoveATest {
@@ -13,39 +14,39 @@ class RemoveATest {
 	 "BBAA"=>"BBAA"
 	 "AABAA"=>"BAA"
 	 */
-	
+	RemoveA RemoveAobj;
+	@BeforeEach
+	void Create()
+	{
+		RemoveAobj=new RemoveA();
+	}
 	@Test
 	void testRemove1() {
-		RemoveA RemoveA=new RemoveA();
-		String actual=RemoveA.remove("ABCD");
+		String actual=RemoveAobj.remove("ABCD");
 		assertEquals("BCD",actual);
 	}
 	
 	@Test
 	void testRemove2() {
-		RemoveA RemoveA=new RemoveA();
-		String actual=RemoveA.remove("AACD");
+		String actual=RemoveAobj.remove("AACD");
 		assertEquals("CD",actual);
 	}
 	
 	@Test
 	void testRemove3() {
-		RemoveA RemoveA=new RemoveA();
-		String actual=RemoveA.remove("BACD");
+		String actual=RemoveAobj.remove("BACD");
 		assertEquals("BCD",actual);
 	}
 	
 	@Test
 	void testRemove4() {
-		RemoveA RemoveA=new RemoveA();
-		String actual=RemoveA.remove("BBAA");
+		String actual=RemoveAobj.remove("BBAA");
 		assertEquals("BBAA",actual);
 	}
 	
 	@Test
 	void testRemove5() {
-		RemoveA RemoveA=new RemoveA();
-		String actual=RemoveA.remove("AABAA");
+		String actual=RemoveAobj.remove("AABAA");
 		assertEquals("BAA",actual);
 	}
 
